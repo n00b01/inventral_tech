@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon/logo.png') }}" />
+  <title>Inventral Tech | Innovating Africa's Digital Future</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+  <link rel="manifest" href="static/favicon/site.webmanifest">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    #topButton {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #06b6d4;
+      color: black;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      display: none;
+    }
+    #topButton:hover {
+      background-color: #0891b2;
+    }
+    /* Fallback for missing images */
+    .team-image {
+      width: 96px;
+      height: 96px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      background: #06b6d4;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<!-- I just added this to confirm Connection to Backend-->
+<script>
+  fetch('/api/ping')
+    .then(res => res.json())
+    .then(data => console.log('Backend says:', data))
+    .catch(err => console.error('Failed to connect to backend:', err));
+</script>
+
+
+<body class="bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white">
+  <button id="topButton" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">▲</button>
+
+  <!-- NAVBAR -->
+  <header class="bg-gray-950 bg-opacity-90 fixed w-full top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-black font-bold">
+          IT
+        </div>
+        <span class="text-2xl font-bold text-cyan-400">Inventral Tech</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#about" class="text-gray-300 hover:text-indigo-400 transition">About</a>
+        <a href="service.html" class="text-gray-300 hover:text-cyan-400 transition">Services</a>
+        <a href="projects.html" class="text-gray-300 hover:text-cyan-400 transition">Projects</a>
+        <a href="client.html" class="text-gray-300 hover:text-cyan-400 transition">Request A Service</a>
+        <a href="#team" class="text-gray-300 hover:text-indigo-400 transition">Team</a>
+        <a href="#impact" class="text-gray-300 hover:text-indigo-400 transition">Impact</a>
+        <a href="#contact" class="text-gray-300 hover:text-indigo-400 transition">Contact</a>
+        <a href="login.html" class="bg-cyan-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-cyan-600 transition">Login</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-cyan-400 text-2xl">☰</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4">
+      <a href="#about" class="block py-2 text-gray-300 hover:text-indigo-400">About</a>
+      <a href="service.html" class="block py-2 text-gray-300 hover:text-cyan-400">Services</a>
+      <a href="projects.html" class="block py-2 text-gray-300 hover:text-cyan-400">Projects</a>
+      <a href="client.html" class="block py-2 text-gray-300 hover:text-cyan-400">Request A Service</a>
+      <a href="#team" class="block py-2 text-gray-300 hover:text-indigo-400">Team</a>
+      <a href="#impact" class="block py-2 text-gray-300 hover:text-indigo-400">Impact</a>
+      <a href="#contact" class="block py-2 text-gray-300 hover:text-indigo-400">Contact</a>
+      <a href="login.html" class="block py-2 mt-2 bg-cyan-500 text-black text-center rounded-md font-semibold hover:bg-cyan-600">Login</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex flex-col justify-center items-center bg-cover bg-center pt-32 px-6 text-center" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-indigo-400 drop-shadow-lg mb-4">Inventral Tech</h1>
+      <p class="text-xl md:text-2xl text-gray-200 max-w-2xl drop-shadow-sm mb-10">
+        Innovating Tomorrow's Digital Landscape & Empowering Future Visionaries
+      </p>
+      <a href="#about" class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-xl transition">Explore More</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-6 max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-indigo-400 mb-4">Who We Are</h2>
+    <p class="text-gray-300 leading-relaxed">
+      Inventral Tech is a tech powerhouse founded by <span class="text-white font-semibold">Iarn John Etyang</span> alongside a passionate team of engineers and creators dedicated to AI, IoT, creative design, and empowering the next generation of African tech talent.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-gray-900 px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-indigo-400">What We Offer</h2>
+      <p class="text-gray-400">Our multidimensional approach to innovation</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto text-center">
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-indigo-500/50 transition">
+        <h3 class="text-xl font-bold text-white mb-2">System & Website Development</h3>
+        <p class="text-gray-400 text-sm">Tailor-made platforms, intuitive user experiences, robust backends we build the future.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-indigo-500/50 transition">
+        <h3 class="text-xl font-bold text-white mb-2">Creative Design</h3>
+        <p class="text-gray-400 text-sm">Eye-catching logos, posters, and flyers that capture your brand's identity and voice.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-indigo-500/50 transition">
+        <h3 class="text-xl font-bold text-white mb-2">Tech Mentorship</h3>
+        <p class="text-gray-400 text-sm">Empowering the next generation with guidance, tools, and inspiration through workshops and community outreach.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-indigo-400 text-center mb-10">Meet the Team</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-gray-800 p-4 rounded-xl text-center">
+        <div class="team-image mx-auto rounded-full mb-3 border-2 border-cyan-400">
+          <img src="static/img/john.jpg" alt="Iarn John" class="w-full h-full rounded-full object-cover" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='IJ';" />
+        </div>
+        <h3 class="text-lg font-semibold">Iarn John Etyang</h3>
+        <p class="text-gray-400 text-sm">Founder & Vision Lead</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl text-center">
+        <div class="team-image mx-auto rounded-full mb-3 border-2 border-cyan-400">
+          <img src="static/img/greg.jpg" alt="Greg Enos" class="w-full h-full rounded-full object-cover" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='GE';" />
+        </div>
+        <h3 class="text-lg font-semibold">Greg Enos Otieno</h3>
+        <p class="text-gray-400 text-sm">BACKEND, AI, & Automation</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl text-center">
+        <div class="team-image mx-auto rounded-full mb-3 border-2 border-cyan-400">
+          WD
+        </div>
+        <h3 class="text-lg font-semibold">Warren David Okong'o</h3>
+        <p class="text-gray-400 text-sm">Product Development</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl text-center">
+        <div class="team-image mx-auto rounded-full mb-3 border-2 border-cyan-400">
+          <img src="static/img/papai.jpg" alt="Yonah Papai" class="w-full h-full rounded-full object-cover" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='YP';" />
+        </div>
+        <h3 class="text-lg font-semibold">Yonah Papai</h3>
+        <p class="text-gray-400 text-sm">Full Stack Developer</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-xl text-center">
+        <div class="team-image mx-auto rounded-full mb-3 border-2 border-cyan-400">
+          <img src="static/img/iano.jpg" alt="Odiwuor Ian" class="w-full h-full rounded-full object-cover" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='OI';" />
+        </div>
+        <h3 class="text-lg font-semibold">Nyang'wecha Odiwuor Ian</h3>
+        <p class="text-gray-400 text-sm">Infrastructure & Systems</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="py-20 bg-gray-950 px-6 text-center">
+    <h2 class="text-4xl font-bold text-indigo-400 mb-4">Our Impact</h2>
+    <p class="text-gray-300 max-w-2xl mx-auto mb-6">We're not just building systems we're building futures. Our outreach empowers young minds through mentorships, coding camps, and tech challenges.</p>
+    <a href="join.html" class="mt-8 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-xl transition">Join Our Mission</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-gray-950 py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-cyan-400 mb-4">Let's Connect</h2>
+        <p class="text-gray-400 mb-6">We're always excited to work with new clients and inspire young tech minds.</p>
+        <ul class="text-gray-300 space-y-2">
+          <li><strong>Email:</strong> invetraltech@gmail.com</li>
+          <li><strong>Location:</strong> Kenya Built for Africa</li>
+        </ul>
+        <div class="flex space-x-4 mt-6">
+          <a href="https://facebook.com/inventraltech" target="_blank" class="flex items-center space-x-2 hover:opacity-80 transition">
+            <div class="social-icon">f</div>
+            <span class="text-cyan-400">Facebook</span>
+          </a>
+          <a href="https://x.com/inventraltech" target="_blank" class="flex items-center space-x-2 hover:opacity-80 transition">
+            <div class="social-icon">𝕏</div>
+            <span class="text-cyan-400">X Twitter</span>
+          </a>
+          <a href="https://www.tiktok.com/@inventraltech0" target="_blank" class="flex items-center space-x-2 hover:opacity-80 transition">
+            <div class="social-icon">T</div>
+            <span class="text-cyan-400">Tiktok</span>
+          </a>
+          <a href="https://instagram.com/inventraltech" target="_blank" class="flex items-center space-x-2 hover:opacity-80 transition">
+            <div class="social-icon">📷</div>
+            <span class="text-cyan-400">Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <form action="/contact" method="POST" class="bg-gray-900 p-6 rounded-lg shadow space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded bg-gray-800 text-white outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded bg-gray-800 text-white outline-none focus:ring-2 focus:ring-cyan-500">
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-2 rounded bg-gray-800 text-white outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+        <button type="submit" class="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-600 transition">Send</button>
+      </form>
+    </div>
+
+    <p class="text-center text-gray-600 text-sm mt-12">&copy; 2025 Inventral Tech. Built with passion for African tech.</p>
+  </section>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('scroll', () => {
+      const topButton = document.getElementById('topButton');
+      topButton.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
+
+<!-- @n00b01 >> Github-->
